@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+body {
+    @apply bg-gray-100;
+}
+
+button {
+    @apply rounded transition-colors duration-200 focus:outline-none cursor-pointer;
+}
