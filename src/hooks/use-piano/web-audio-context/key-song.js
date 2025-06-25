@@ -3,13 +3,14 @@ const loadedMP3Keys = [];
 
 function buildMP3KeyUrl (key) {
     let name = (key.note.bemolName || key.note.name) + key.octave;
-    return `/mp3/${name}.mp3`;
+    return `mp3/${name}.mp3`;
 }
 
 async function loadMP3Key(key) {
     const url = buildMP3KeyUrl(key);
 
     const response = await fetch(url);
+    
     if (!response.ok) {
         throw new Error(`Failed to load MP3 for key ${key.name}: ${response.status} ${response.statusText}`);
     }
