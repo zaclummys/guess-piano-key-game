@@ -94,7 +94,7 @@ function useScore () {
 }
 
 export default function usePiano () {
-    const maxRound = 2;
+    const maxRound = 10;
 
     const [selectedOctaves, setSelectedOctaves] = useState([]);
     const [isBlackKeysIncluded, setIsBlackKeysIncluded] = useState(false);
