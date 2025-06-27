@@ -4,9 +4,6 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   base: 'https://zaclummys.github.io/guess-piano-key-game/',
-  assetsInclude: [
-    'src/mp3s/*.mp3',
-  ],
   plugins: [
     react(),
     tailwindcss(),

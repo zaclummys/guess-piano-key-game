@@ -207,7 +207,6 @@ export default function usePiano () {
             return;
         }
 
-        stopKey(currentKey);
         playKey(currentKey);
     }
 
@@ -216,7 +215,6 @@ export default function usePiano () {
             return;
         }
 
-        stopKey(currentKey);
         generateNewRandomKey({
             selectedOctaves,
             isBlackKeysIncluded,
@@ -225,14 +223,12 @@ export default function usePiano () {
     }
 
     const guessKey = (guessingKey) => {
-        stopKey(currentKey);
-
-        let songDuration;
+        stopKey();
 
         if (guessingKey.note === currentKey.note) {
-            songDuration = playCorrectSong();
+            playCorrectSong();
         } else {
-            songDuration = playWrongSong();
+            playWrongSong();
         }
         
         const isCorrect = guessingKey.note === currentKey.note;
