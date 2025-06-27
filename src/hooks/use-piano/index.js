@@ -132,11 +132,16 @@ export default function usePiano () {
     }
 
     const generateNewRandomKey = ({ selectedOctaves, isBlackKeysIncluded }) => {
+        const lastNthKeys = answerHistory
+            .slice(-3)
+            .map(answer => answer.correctKey);
+
         const octave = random(selectedOctaves);
 
         const candidateKeys = keys
             .filter(key => key.octave === octave)
-            .filter(key => isBlackKeysIncluded || key.note.color === 'white');
+            .filter(key => isBlackKeysIncluded || key.note.color === 'white')
+            .filter(key => !lastNthKeys.includes(key))
 
         const shuffledCandidateKeys = shuffle(candidateKeys);
 
